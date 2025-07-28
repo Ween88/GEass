@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0f401orcgo5d"]
+
+[ext_resource type="PackedScene" path="res://slot.tscn" id="1_i2dho"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Crafting" type="GridContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -64.0
+offset_right = 86.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Slot" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot2" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot4" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot5" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot6" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot7" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot8" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot9" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot10" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot11" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2
+
+[node name="Slot12" parent="UI/Crafting" instance=ExtResource("1_i2dho")]
+layout_mode = 2

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ral3iok1uiyh"]
+
+[node name="HotBarSlot" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+offset_left = 483.0
+offset_top = 237.0
+offset_right = 669.0
+offset_bottom = 411.0
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quantity" type="Label" parent="."]
+custom_minimum_size = Vector2(20, 30)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+text = "99
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemIcon" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+stretch_mode = 5
