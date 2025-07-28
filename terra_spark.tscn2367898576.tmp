@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d256kwuscdb2i"]
+
+[ext_resource type="Script" uid="uid://cyuks65sa4alu" path="res://tile_map.gd" id="1_7m50s"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7m50s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7m50s"]
+noise = SubResource("FastNoiseLite_7m50s")
+
+[node name="TerraSpark" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+script = ExtResource("1_7m50s")
+
+[node name="Camera2D" type="Camera2D" parent="TileMap"]
+
+[node name="noise" type="Sprite2D" parent="TileMap"]
+texture = SubResource("NoiseTexture2D_7m50s")
