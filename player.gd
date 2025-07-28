@@ -4,9 +4,9 @@ const SPEED = 200
 const JUMP_FORCE = -400
 const GRAVITY = 1000
 
-@onready var anim_sprite = $Movement
-@onready var anim_player = $AnimationPlayer
-@onready var tool_sprite = $Tool/Sprite2D
+@onready var anim_sprite = $Visual/Movement
+@onready var anim_player = $Visual/AnimationPlayer
+@onready var visuals = $Visual
 
 var swinging = false
 
@@ -42,9 +42,8 @@ func _physics_process(delta):
 
 	# Flip sprite and tool
 	if direction.x != 0:
-		anim_sprite.flip_h = direction.x > 0
-		tool_sprite.flip_h = direction.x > 0
-		tool_sprite.position.x = abs(tool_sprite.position.x)
+		var facing_right = direction.x > 0
+		visuals.scale.x = -1 if facing_right else 1 #the character sprite face left by default
 
 	# Animation control
 	if not is_on_floor():

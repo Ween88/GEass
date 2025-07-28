@@ -7957,6 +7957,10 @@ sources/11 = SubResource("TileSetAtlasSource_x34pt")
 sources/12 = SubResource("TileSetAtlasSource_wv23a")
 sources/13 = SubResource("TileSetAtlasSource_iwodo")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x34pt"]
+radius = 13.0
+height = 48.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d67ev"]
 atlas = ExtResource("3_78kgk")
 region = Rect2(0, 0, 30, 49)
@@ -8024,23 +8028,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x34pt"]
-radius = 13.0
-height = 48.0
-
 [sub_resource type="Animation" id="Animation_31ugy"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tool:rotation")
+tracks/0/path = NodePath("Visual/Tool:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.938987]
+"values": [0.0139626]
 }
 
 [sub_resource type="Animation" id="Animation_d67ev"]
@@ -8049,7 +8049,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tool/Sprite2D:position")
+tracks/0/path = NodePath("Visual/Tool/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -8061,7 +8061,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Tool/Sprite2D:rotation")
+tracks/1/path = NodePath("Visual/Tool/Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -8073,7 +8073,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Tool:rotation")
+tracks/2/path = NodePath("Visual/Tool:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -8103,12 +8103,6 @@ collision_layer = 255
 collision_mask = 255
 script = ExtResource("2_mr2el")
 
-[node name="Movement" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(2, 0)
-scale = Vector2(0.866667, 1)
-sprite_frames = SubResource("SpriteFrames_kufaa")
-animation = &"idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_x34pt")
@@ -8116,15 +8110,24 @@ shape = SubResource("CapsuleShape2D_x34pt")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(3, 1)
 
-[node name="Tool" type="Node2D" parent="Player"]
-rotation = -0.938987
+[node name="Visual" type="Node2D" parent="Player"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Player/Tool"]
+[node name="Movement" type="AnimatedSprite2D" parent="Player/Visual"]
+position = Vector2(2, 0)
+scale = Vector2(0.866667, 1)
+sprite_frames = SubResource("SpriteFrames_kufaa")
+animation = &"idle"
+
+[node name="Tool" type="Node2D" parent="Player/Visual"]
+rotation = 0.0139626
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Visual/Tool"]
 position = Vector2(-32.626, -16.6295)
 scale = Vector2(0.0383806, 0.0395224)
 texture = ExtResource("4_78kgk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Visual"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_ov2q1")
 }
