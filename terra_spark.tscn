@@ -7965,9 +7965,9 @@ height = 48.0
 atlas = ExtResource("3_78kgk")
 region = Rect2(0, 0, 30, 49)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_31ugy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pylp"]
 atlas = ExtResource("3_78kgk")
-region = Rect2(155, 49, 29, 49)
+region = Rect2(155, 50, 31, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov2q1"]
 atlas = ExtResource("3_78kgk")
@@ -8001,7 +8001,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_31ugy")
+"texture": SubResource("AtlasTexture_4pylp")
 }],
 "loop": true,
 "name": &"jump",
