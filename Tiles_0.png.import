@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg12r6loc1e78"
-path="res://.godot/imported/Gore_211.png-cb8890f700926bc15445a7cbd1f5c2bb.ctex"
+uid="uid://dd7w0eoo0ywxc"
+path="res://.godot/imported/Tiles_0.png-c0fa89531a7c6229d90ca704593e7d13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gore_211.png"
-dest_files=["res://.godot/imported/Gore_211.png-cb8890f700926bc15445a7cbd1f5c2bb.ctex"]
+source_file="res://Tiles_0.png"
+dest_files=["res://.godot/imported/Tiles_0.png-c0fa89531a7c6229d90ca704593e7d13.ctex"]
 
 [params]
 
