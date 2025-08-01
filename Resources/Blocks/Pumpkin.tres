@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3 uid="uid://cifd0r7gagcm3"]
+
+[ext_resource type="Script" uid="uid://bl011ompvxofs" path="res://BlockData.gd" id="1_jgu2j"]
+
+[resource]
+script = ExtResource("1_jgu2j")
+tile_name = "pumpkin"
+health = 1
+atlas_coords = Array[Vector2i]([Vector2i(28, 25)])
+source1 = 0
+metadata/_custom_type_script = "uid://bl011ompvxofs"

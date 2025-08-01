@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3 uid="uid://clkcut1irobsi"]
+
+[ext_resource type="Script" uid="uid://bl011ompvxofs" path="res://BlockData.gd" id="1_maq0j"]
+
+[resource]
+script = ExtResource("1_maq0j")
+tile_name = "leave"
+health = 1
+atlas_coords = Array[Vector2i]([Vector2i(30, 27)])
+source1 = 0
+metadata/_custom_type_script = "uid://bl011ompvxofs"

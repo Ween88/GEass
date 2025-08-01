@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3 uid="uid://yuwtm5tsf4cp"]
+
+[ext_resource type="Script" uid="uid://bl011ompvxofs" path="res://BlockData.gd" id="1_y6yrp"]
+
+[resource]
+script = ExtResource("1_y6yrp")
+tile_name = "mushroom"
+health = 1
+atlas_coords = Array[Vector2i]([Vector2i(8, 0)])
+source1 = 8
+metadata/_custom_type_script = "uid://bl011ompvxofs"
