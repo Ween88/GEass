@@ -1,5 +1,4 @@
 extends Resource
-
 class_name BlockData
 
 @export var tile_name: String = "default_block"
