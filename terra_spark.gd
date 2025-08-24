@@ -25,6 +25,18 @@ var inventory = {
 }
 
 func _physics_process(_delta):
+	%soil.text = ": " + str(inventory["soil"])
+	%stone.text = ": " + str(inventory["stone"])
+	%sand.text = ": " + str(inventory["sand"])
+	%iron.text = ": " + str(inventory["iron"])
+	%gold.text = ": " + str(inventory["gold"])
+	%diamond.text = ": " + str(inventory["diamond"])
+	%crystal.text = ": " + str(inventory["crystal"])
+	%trunk.text = ": " + str(inventory["trunk"])
+	%pumpkin.text = ": " + str(inventory["pumpkin"])
+	%cactus.text = ": " + str(inventory["cactus"])
+	%sugarcane.text = ": " + str(inventory["sugarcane"])
+	
 	if player:
 		distance = (get_global_mouse_position() - player.position).length()
 
