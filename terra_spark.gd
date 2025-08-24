@@ -95,13 +95,11 @@ func switch_block(event):
 	if event.keycode == KEY_8 and event.pressed:
 		current_block = "cactus"
 	if event.keycode == KEY_9 and event.pressed:
-		current_block = "leave"
+		current_block = "trunk"
 	if event.keycode == KEY_0 and event.pressed:
 		current_block = "pumpkin"
 	if event.keycode == KEY_Q and event.pressed:
 		current_block = "sugarcane"
-	if event.keycode == KEY_W and event.pressed:
-		current_block = "trunk"
 
 func is_placeable(event) -> bool:
 	return event.button_index == MOUSE_BUTTON_RIGHT and distance < 100 and distance > 50 and inventory[current_block] > 0
