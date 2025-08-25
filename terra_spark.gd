@@ -25,6 +25,18 @@ var inventory = {
 }
 
 func _physics_process(_delta):
+	%soil.text = ": " + str(inventory["soil"])
+	%stone.text = ": " + str(inventory["stone"])
+	%sand.text = ": " + str(inventory["sand"])
+	%iron.text = ": " + str(inventory["iron"])
+	%gold.text = ": " + str(inventory["gold"])
+	%diamond.text = ": " + str(inventory["diamond"])
+	%crystal.text = ": " + str(inventory["crystal"])
+	%trunk.text = ": " + str(inventory["trunk"])
+	%pumpkin.text = ": " + str(inventory["pumpkin"])
+	%cactus.text = ": " + str(inventory["cactus"])
+	%sugarcane.text = ": " + str(inventory["sugarcane"])
+	
 	if player:
 		distance = (get_global_mouse_position() - player.position).length()
 
@@ -95,13 +107,11 @@ func switch_block(event):
 	if event.keycode == KEY_8 and event.pressed:
 		current_block = "cactus"
 	if event.keycode == KEY_9 and event.pressed:
-		current_block = "leave"
+		current_block = "trunk"
 	if event.keycode == KEY_0 and event.pressed:
 		current_block = "pumpkin"
 	if event.keycode == KEY_Q and event.pressed:
 		current_block = "sugarcane"
-	if event.keycode == KEY_W and event.pressed:
-		current_block = "trunk"
 
 func is_placeable(event) -> bool:
 	return event.button_index == MOUSE_BUTTON_RIGHT and distance < 100 and distance > 50 and inventory[current_block] > 0
