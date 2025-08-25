@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://d256kwuscdb2i"]
+[gd_scene load_steps=62 format=4 uid="uid://d256kwuscdb2i"]
 
 [ext_resource type="Script" uid="uid://dq8sjcpu0lxdb" path="res://terra_spark.gd" id="1_6gmo6"]
 [ext_resource type="Script" uid="uid://6gnyeqwd8fbc" path="res://player.gd" id="2_mr2el"]
@@ -24,6 +24,8 @@
 [ext_resource type="Resource" uid="uid://bqm0vanw5l1oo" path="res://Resources/Blocks/Dungeonblock.tres" id="16_r4qlq"]
 [ext_resource type="Texture2D" uid="uid://f05c2uxydrdo" path="res://assest/backgroundtree.png" id="23_3hlra"]
 [ext_resource type="Texture2D" uid="uid://dqkjuam6lfipi" path="res://assest/backgroundsand.webp" id="24_m1mjl"]
+[ext_resource type="Script" uid="uid://cyrwigteasckk" path="res://enemy.gd" id="25_wv78o"]
+[ext_resource type="Texture2D" uid="uid://c0qndw8wm0orb" path="res://assest/Enemy_SpriteSheet.png" id="26_cq5da"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4qlq"]
 texture = ExtResource("4_6gmo6")
@@ -2520,7 +2522,67 @@ _data = {
 &"swing": SubResource("Animation_d67ev")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv78o"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wosgi"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nfx2"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(86, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_visfx"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(172, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdjag"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(258, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e7js"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(344, 0, 86, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7q6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv78o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wosgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nfx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_visfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdjag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e7js")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6ms6"]
+radius = 14.0
+height = 50.0
+
 [node name="TerraSpark" type="Node2D" node_paths=PackedStringArray("player")]
+position = Vector2(47, -146)
 script = ExtResource("1_6gmo6")
 block = Dictionary[String, ExtResource("2_oro5c")]({
 "cactus": ExtResource("3_bs2or"),
@@ -2547,7 +2609,7 @@ tile_map_data = PackedByteArray("AAABAAcAAAALABIAAAACAAcAAAALABIAAAADAAcAAAALABI
 tile_set = SubResource("TileSet_mr2el")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(135, -315)
 disable_mode = 1
 collision_layer = 255
 collision_mask = 255
@@ -2559,10 +2621,10 @@ shape = SubResource("CapsuleShape2D_x34pt")
 [node name="UI" type="CanvasLayer" parent="Player/CollisionShape2D"]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = -54.0
-offset_top = -113.0
-offset_right = -14.0
-offset_bottom = -73.0
+offset_left = 128.0
+offset_top = -575.0
+offset_right = 168.0
+offset_bottom = -535.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer"]
 layout_mode = 2
@@ -2578,10 +2640,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = -9.0
-offset_top = -114.0
-offset_right = 31.0
-offset_bottom = -74.0
+offset_left = 173.0
+offset_top = -576.0
+offset_right = 213.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer2"]
 layout_mode = 2
@@ -2597,10 +2659,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 36.0
-offset_top = -114.0
-offset_right = 76.0
-offset_bottom = -74.0
+offset_left = 218.0
+offset_top = -576.0
+offset_right = 258.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer3"]
 layout_mode = 2
@@ -2616,10 +2678,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 80.0
-offset_top = -114.0
-offset_right = 120.0
-offset_bottom = -74.0
+offset_left = 262.0
+offset_top = -576.0
+offset_right = 302.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer4"]
 layout_mode = 2
@@ -2635,10 +2697,10 @@ layout_mode = 2
 text = ":0"
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 125.0
-offset_top = -114.0
-offset_right = 165.0
-offset_bottom = -74.0
+offset_left = 307.0
+offset_top = -576.0
+offset_right = 347.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer5"]
 layout_mode = 2
@@ -2654,10 +2716,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 169.0
-offset_top = -114.0
-offset_right = 209.0
-offset_bottom = -74.0
+offset_left = 351.0
+offset_top = -576.0
+offset_right = 391.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer6"]
 layout_mode = 2
@@ -2673,10 +2735,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer7" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 216.0
-offset_top = -113.0
-offset_right = 256.0
-offset_bottom = -73.0
+offset_left = 398.0
+offset_top = -575.0
+offset_right = 438.0
+offset_bottom = -535.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer7"]
 layout_mode = 2
@@ -2692,10 +2754,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer8" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 260.0
-offset_top = -114.0
-offset_right = 300.0
-offset_bottom = -74.0
+offset_left = 442.0
+offset_top = -576.0
+offset_right = 482.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer8"]
 layout_mode = 2
@@ -2711,10 +2773,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer9" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 305.0
-offset_top = -114.0
-offset_right = 345.0
-offset_bottom = -74.0
+offset_left = 487.0
+offset_top = -576.0
+offset_right = 527.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer9"]
 layout_mode = 2
@@ -2730,10 +2792,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer10" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 350.0
-offset_top = -114.0
-offset_right = 390.0
-offset_bottom = -74.0
+offset_left = 532.0
+offset_top = -576.0
+offset_right = 572.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer10"]
 layout_mode = 2
@@ -2749,10 +2811,10 @@ layout_mode = 2
 text = "0"
 
 [node name="VBoxContainer11" type="VBoxContainer" parent="Player/CollisionShape2D/UI"]
-offset_left = 395.0
-offset_top = -114.0
-offset_right = 435.0
-offset_bottom = -74.0
+offset_left = 577.0
+offset_top = -576.0
+offset_right = 617.0
+offset_bottom = -536.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CollisionShape2D/UI/VBoxContainer11"]
 layout_mode = 2
@@ -2791,13 +2853,41 @@ libraries = {
 }
 
 [node name="DarkForestBackground" type="Sprite2D" parent="."]
+visible = false
 z_index = -4096
 position = Vector2(1730, 455)
 scale = Vector2(1.34947, 1.34569)
 texture = ExtResource("23_3hlra")
 
 [node name="SandBackground" type="Sprite2D" parent="."]
+visible = false
 z_index = -4096
 position = Vector2(-1387, 454)
 scale = Vector2(1.40156, 2.25185)
 texture = ExtResource("24_m1mjl")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(627, 89)
+script = ExtResource("25_wv78o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(-1.00001, 2)
+scale = Vector2(0.367733, 0.344231)
+sprite_frames = SubResource("SpriteFrames_k7q6g")
+animation = &"idle"
+
+[node name="RayCast_GroundFront" type="RayCast2D" parent="Enemy"]
+position = Vector2(-16, 0)
+target_position = Vector2(0, 26)
+
+[node name="RayCast_WallFront" type="RayCast2D" parent="Enemy"]
+position = Vector2(-15, 0)
+target_position = Vector2(-25, 0)
+
+[node name="RayCast_StepFront" type="RayCast2D" parent="Enemy"]
+position = Vector2(-16, -5)
+target_position = Vector2(0, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_t6ms6")
