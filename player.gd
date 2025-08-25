@@ -8,6 +8,7 @@ const GRAVITY = 1000
 @onready var anim_player = $Visual/AnimationPlayer
 @onready var visuals = $Visual
 
+var equipped_weapon = null
 var swinging = false
 
 func _physics_process(delta):
@@ -52,3 +53,37 @@ func _physics_process(delta):
 		anim_sprite.play("walk")
 	else:
 		anim_sprite.play("idle")
+
+func equip_weapon(weapon_scene_path):
+	# If a weapon is already equipped, remove it first
+	if equipped_weapon:
+		equipped_weapon.queue_free()
+
+	# Load and instance the new weapon scene
+	var weapon_scene = load(weapon_scene_path)
+	var new_weapon = weapon_scene.instantiate()
+
+	# Add the new weapon as a child of the WeaponHolder node
+	$Visual/WeaponHolder.add_child(new_weapon)
+	equipped_weapon = new_weapon
+
+func _input(event):
+	#event to equip the weapon on player
+	if event.is_action_pressed("equip_sword"):
+		equip_weapon("res://Sword.tscn")
+
+	#event to perform attack 
+	if event.is_action_pressed("attack"):
+		if equipped_weapon:
+			play_attack_animation()
+			# Call a function on the equipped weapon to activate its hitbox
+			equipped_weapon.set_hitbox_active(true)
+			# Use a timer  to deactivate it later
+			get_tree().create_timer(0.2).timeout.connect(deactivate_weapon_hitbox)
+
+func deactivate_weapon_hitbox():
+	if equipped_weapon:
+		equipped_weapon.set_hitbox_active(false)
+
+func play_attack_animation():
+	anim_player.play("attack")

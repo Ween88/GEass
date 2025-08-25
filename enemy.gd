@@ -9,6 +9,7 @@ extends CharacterBody2D
 var direction: int = -1  # -1 = left, 1 = right
 var is_chasing: bool = false
 var player: Node2D
+var health = 100
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_ground_front: RayCast2D = $RayCast_GroundFront
@@ -78,3 +79,17 @@ func _apply_direction():
 	# Flip RayCast target points
 	ray_wall_front.target_position.x = direction * _ray_wall_target_abs_x
 	ray_step_front.target_position.x = direction * _ray_step_target_abs_x
+
+func take_damage(amount):
+	health -= amount
+	print("Enemy took", amount, "damage! Health remaining: ", health)
+	
+	#Check if health has dropped to or below zero
+	if health <= 0:
+		die()
+
+func die():
+	#Death animation
+	
+	#Removes the enemy node from the scene tree
+	queue_free()

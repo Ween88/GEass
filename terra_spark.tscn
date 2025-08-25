@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://d256kwuscdb2i"]
+[gd_scene load_steps=65 format=4 uid="uid://d256kwuscdb2i"]
 
 [ext_resource type="Script" uid="uid://dq8sjcpu0lxdb" path="res://terra_spark.gd" id="1_6gmo6"]
 [ext_resource type="Script" uid="uid://6gnyeqwd8fbc" path="res://player.gd" id="2_mr2el"]
@@ -2398,9 +2398,9 @@ region_rect = Rect2(537.942, 424.832, 18.2808, 16.1046)
 atlas = ExtResource("3_78kgk")
 region = Rect2(0, 0, 30, 49)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pylp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq5da"]
 atlas = ExtResource("3_78kgk")
-region = Rect2(155, 50, 31, 48)
+region = Rect2(0, 0, 31, 49)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov2q1"]
 atlas = ExtResource("3_78kgk")
@@ -2434,7 +2434,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4pylp")
+"texture": SubResource("AtlasTexture_cq5da")
 }],
 "loop": true,
 "name": &"jump",
@@ -2475,6 +2475,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0139626]
 }
+
+[sub_resource type="Animation" id="Animation_wv78o"]
+resource_name = "attack"
 
 [sub_resource type="Animation" id="Animation_d67ev"]
 resource_name = "swing"
@@ -2519,8 +2522,15 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ov2q1"]
 _data = {
 &"RESET": SubResource("Animation_31ugy"),
+&"attack": SubResource("Animation_wv78o"),
 &"swing": SubResource("Animation_d67ev")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv78o"]
+bg_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cq5da"]
+bg_color = Color(0.951401, 0.32934, 0.303198, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wv78o"]
 atlas = ExtResource("26_cq5da")
@@ -2836,9 +2846,10 @@ text = "0"
 [node name="Movement" type="AnimatedSprite2D" parent="Player/Visual"]
 scale = Vector2(0.866667, 1)
 sprite_frames = SubResource("SpriteFrames_kufaa")
-animation = &"walk"
+animation = &"jump"
 
 [node name="Tool" type="Node2D" parent="Player/Visual"]
+visible = false
 rotation = 0.0139626
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Visual/Tool"]
@@ -2851,6 +2862,20 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_ov2q1")
 }
+
+[node name="WeaponHolder" type="Marker2D" parent="Player/Visual"]
+position = Vector2(-9, 4)
+
+[node name="HealthBar" type="ProgressBar" parent="Player"]
+offset_left = -562.0
+offset_top = -312.0
+offset_right = -194.0
+offset_bottom = -285.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wv78o")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cq5da")
+max_value = 10.0
+value = 5.0
+show_percentage = false
 
 [node name="DarkForestBackground" type="Sprite2D" parent="."]
 visible = false
@@ -2877,15 +2902,15 @@ sprite_frames = SubResource("SpriteFrames_k7q6g")
 animation = &"idle"
 
 [node name="RayCast_GroundFront" type="RayCast2D" parent="Enemy"]
-position = Vector2(-16, 0)
+position = Vector2(-16, 1)
 target_position = Vector2(0, 26)
 
 [node name="RayCast_WallFront" type="RayCast2D" parent="Enemy"]
 position = Vector2(-15, 0)
-target_position = Vector2(-25, 0)
+target_position = Vector2(-15, 0)
 
 [node name="RayCast_StepFront" type="RayCast2D" parent="Enemy"]
-position = Vector2(-16, -5)
+position = Vector2(-16, -2)
 target_position = Vector2(0, 18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]

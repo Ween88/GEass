@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ep1bs8xw1elp"]
 
 [ext_resource type="Script" uid="uid://cl3nlpknpqw7g" path="res://HealthBarLogic.gd" id="1_ypcvb"]
-[ext_resource type="PackedScene" path="res://game_over.tscn" id="2_n0c2p"]
+[ext_resource type="PackedScene" uid="uid://cydadwk5aawox" path="res://game_over.tscn" id="2_n0c2p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx2kh"]
 bg_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
