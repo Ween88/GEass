@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bakpki44lj568"]
+[gd_scene load_steps=3 format=3 uid="uid://bakpki44lj568"]
+
+[ext_resource type="Script" uid="uid://bilkrivsxymdh" path="res://pause_menup.gd" id="1_hdmo1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyi4u"]
 bg_color = Color(1, 1, 1, 1)
@@ -17,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hdmo1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -33,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -41,7 +44,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_wyi4u")
 text = "Resume"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)

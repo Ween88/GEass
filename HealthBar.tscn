@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ep1bs8xw1elp"]
+[gd_scene load_steps=6 format=3 uid="uid://ep1bs8xw1elp"]
 
 [ext_resource type="Script" uid="uid://cl3nlpknpqw7g" path="res://HealthBarLogic.gd" id="1_ypcvb"]
-[ext_resource type="PackedScene" uid="uid://cydadwk5aawox" path="res://game_over.tscn" id="2_n0c2p"]
+[ext_resource type="PackedScene" uid="uid://cng2xndwwgtjy" path="res://game_over.tscn" id="2_n0c2p"]
+[ext_resource type="PackedScene" uid="uid://bakpki44lj568" path="res://pause_menu.tscn" id="3_7onog"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx2kh"]
 bg_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
@@ -84,3 +85,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameOver" parent="." instance=ExtResource("2_n0c2p")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_7onog")]
+process_mode = 3

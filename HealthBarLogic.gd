@@ -4,6 +4,10 @@ extends Node2D
 @onready var heal_button = $CanvasLayer/TabBarBackground/heal
 @onready var hurt_button = $CanvasLayer/TabBarBackground2/hurt
 
+# Preload the pause menu for dynamic instantiation
+var pause_menu_scene = preload("res://pause_menu.tscn")
+var current_pause_menu = null
+
 var game_over_scene = "res://game_over.tscn"
 var hp = 10
 
@@ -30,3 +34,21 @@ func hurt_pressed():
 	if hp == 0:
 		print("You are defeated!")
 		get_tree().change_scene_to_file(game_over_scene)
+		
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		if get_tree().paused:
+			unpause_game()
+		else:
+			pause_game()
+	
+func pause_game():
+	get_tree().paused = true
+	current_pause_menu = pause_menu_scene.instantiate()
+	add_child(current_pause_menu)
+	
+func unpause_game():
+	get_tree().paused = false
+	if is_instance_valid(current_pause_menu):
+		current_pause_menu.queue_free()
+		current_pause_menu = null
