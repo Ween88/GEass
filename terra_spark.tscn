@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://d256kwuscdb2i"]
+[gd_scene load_steps=53 format=4 uid="uid://d256kwuscdb2i"]
 
 [ext_resource type="Script" uid="uid://dq8sjcpu0lxdb" path="res://terra_spark.gd" id="1_6gmo6"]
 [ext_resource type="Script" uid="uid://6gnyeqwd8fbc" path="res://player.gd" id="2_mr2el"]
@@ -24,6 +24,8 @@
 [ext_resource type="Resource" uid="uid://bqm0vanw5l1oo" path="res://Resources/Blocks/Dungeonblock.tres" id="16_r4qlq"]
 [ext_resource type="Texture2D" uid="uid://f05c2uxydrdo" path="res://backgroundtree.png" id="23_3hlra"]
 [ext_resource type="Texture2D" uid="uid://dqkjuam6lfipi" path="res://backgroundsand.webp" id="24_m1mjl"]
+[ext_resource type="Script" uid="uid://cyrwigteasckk" path="res://enemy.gd" id="25_wv78o"]
+[ext_resource type="Texture2D" uid="uid://c0qndw8wm0orb" path="res://assest/Enemy_SpriteSheet.png" id="26_cq5da"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4qlq"]
 texture = ExtResource("4_6gmo6")
@@ -2348,6 +2350,12 @@ sources/0 = SubResource("TileSetAtlasSource_r4qlq")
 radius = 13.0
 height = 48.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1mjl"]
+bg_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cultf"]
+bg_color = Color(0.951401, 0.32934, 0.303198, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d67ev"]
 atlas = ExtResource("3_78kgk")
 region = Rect2(0, 0, 30, 49)
@@ -2476,6 +2484,65 @@ _data = {
 &"swing": SubResource("Animation_d67ev")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wosgi"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nfx2"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(0, 0, 90, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_visfx"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(90, 0, 90, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdjag"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(172, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e7js"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(258, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7q6g"]
+atlas = ExtResource("26_cq5da")
+region = Rect2(344, 0, 86, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6ms6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wosgi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nfx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_visfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdjag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e7js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7q6g")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxu2i"]
+radius = 15.0
+height = 52.0
+
 [node name="TerraSpark" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_6gmo6")
 block = Dictionary[String, ExtResource("2_oro5c")]({
@@ -2503,7 +2570,7 @@ tile_map_data = PackedByteArray("AAABAAcAAAALABIAAAACAAcAAAALABIAAAADAAcAAAALABI
 tile_set = SubResource("TileSet_mr2el")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(17, 6)
+position = Vector2(143, -361)
 disable_mode = 1
 collision_layer = 255
 collision_mask = 255
@@ -2513,6 +2580,17 @@ script = ExtResource("2_mr2el")
 shape = SubResource("CapsuleShape2D_x34pt")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="HealthBar" type="ProgressBar" parent="Player/Camera2D"]
+offset_left = -567.0
+offset_top = -315.0
+offset_right = -199.0
+offset_bottom = -288.0
+theme_override_styles/background = SubResource("StyleBoxFlat_m1mjl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cultf")
+max_value = 10.0
+value = 5.0
+show_percentage = false
 
 [node name="Visual" type="Node2D" parent="Player"]
 
@@ -2536,13 +2614,42 @@ libraries = {
 }
 
 [node name="DarkForestBackground" type="Sprite2D" parent="."]
+visible = false
 z_index = -4096
 position = Vector2(1715.5, 451.5)
 scale = Vector2(1.34947, 1.34569)
 texture = ExtResource("23_3hlra")
 
 [node name="SandBackground" type="Sprite2D" parent="."]
+visible = false
 z_index = -4096
 position = Vector2(-1387.5, 452)
 scale = Vector2(1.40156, 2.25185)
 texture = ExtResource("24_m1mjl")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(653, 120)
+script = ExtResource("25_wv78o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(1.28889, -0.750019)
+scale = Vector2(0.355556, 0.373077)
+sprite_frames = SubResource("SpriteFrames_t6ms6")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+visible = false
+position = Vector2(1.28889, -1.75002)
+shape = SubResource("CapsuleShape2D_rxu2i")
+
+[node name="RayCast_GroundFront" type="RayCast2D" parent="Enemy"]
+position = Vector2(-16, 0)
+target_position = Vector2(0, 25)
+
+[node name="RayCast_WallFront" type="RayCast2D" parent="Enemy"]
+position = Vector2(-15, 0)
+target_position = Vector2(-26, 0)
+
+[node name="RayCast_StepFront" type="RayCast2D" parent="Enemy"]
+position = Vector2(-16, -3)
+target_position = Vector2(0, 16)
