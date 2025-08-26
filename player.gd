@@ -8,7 +8,7 @@ const GRAVITY = 1000
 @onready var anim_player = $Visual/AnimationPlayer
 @onready var visuals = $Visual
 @onready var attack_area = $AttackArea
-
+@onready var sfx_jump = $sfx_jump
 # Health variables
 var health = 100
 var max_health = 100
@@ -58,6 +58,7 @@ func _physics_process(delta):
 	# Animation control
 	if not is_on_floor():
 		anim_sprite.play("jump")
+		sfx_jump.play()
 	elif direction.x != 0:
 		anim_sprite.play("walk")
 	else:
