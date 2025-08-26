@@ -9,6 +9,8 @@ const GRAVITY = 1000
 @onready var visuals = $Visual
 @onready var attack_area = $AttackArea
 @onready var sfx_jump = $sfx_jump
+@onready var sfx_attack = $sfx_attack
+
 # Health variables
 var health = 100
 var max_health = 100
@@ -90,6 +92,7 @@ func attack():
 	can_attack = false
 	anim_player.play("attack")
 	get_tree().create_timer(attack_cooldown).timeout.connect(reset_attack)
+	sfx_attack.play()
 	
 func reset_attack():
 	anim_player.play("RESET")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://d256kwuscdb2i"]
+[gd_scene load_steps=77 format=4 uid="uid://d256kwuscdb2i"]
 
 [ext_resource type="Script" uid="uid://dq8sjcpu0lxdb" path="res://terra_spark.gd" id="1_6gmo6"]
 [ext_resource type="Script" uid="uid://6gnyeqwd8fbc" path="res://player.gd" id="2_mr2el"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://cehxx42xcqcah" path="res://mixkit-player-jumping-in-a-video-game-2043.wav" id="25_visfx"]
 [ext_resource type="Script" uid="uid://cyrwigteasckk" path="res://enemy.gd" id="25_wv78o"]
 [ext_resource type="Texture2D" uid="uid://c0qndw8wm0orb" path="res://assest/Enemy_SpriteSheet.png" id="26_cq5da"]
+[ext_resource type="AudioStream" uid="uid://b4arj1yoqs3qd" path="res://sword-sound-260274.mp3" id="26_tdjag"]
 [ext_resource type="Script" uid="uid://cymlicvmgv88y" path="res://enemy_attack_area.gd" id="29_0nfx2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4qlq"]
@@ -2983,6 +2984,9 @@ show_percentage = false
 [node name="sfx_jump" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("25_visfx")
 volume_db = -7.0
+
+[node name="sfx_attack" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("26_tdjag")
 
 [node name="DarkForestBackground" type="Sprite2D" parent="."]
 z_index = -4096
