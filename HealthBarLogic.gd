@@ -3,10 +3,7 @@ extends Node2D
 @onready var health_bar = $CanvasLayer/HealthBar
 @onready var heal_button = $CanvasLayer/TabBarBackground/heal
 @onready var hurt_button = $CanvasLayer/TabBarBackground2/hurt
-
-# Preload the pause menu for dynamic instantiation
-var pause_menu_scene = preload("res://pause_menu.tscn")
-var current_pause_menu = null
+@onready var pause_menu = $PauseMenu  # Corrected path
 
 var game_over_scene = "res://game_over.tscn"
 var hp = 10
@@ -17,6 +14,9 @@ func _ready():
 
 	heal_button.pressed.connect(heal_pressed)
 	hurt_button.pressed.connect(hurt_pressed)
+	
+	# Hiding the pause menu initially
+	pause_menu.hide()
 
 func heal_pressed():
 	hp += 1
@@ -44,11 +44,8 @@ func _unhandled_input(event):
 	
 func pause_game():
 	get_tree().paused = true
-	current_pause_menu = pause_menu_scene.instantiate()
-	add_child(current_pause_menu)
+	pause_menu.show()
 	
 func unpause_game():
 	get_tree().paused = false
-	if is_instance_valid(current_pause_menu):
-		current_pause_menu.queue_free()
-		current_pause_menu = null
+	pause_menu.hide()

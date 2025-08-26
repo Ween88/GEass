@@ -87,4 +87,3 @@ grow_vertical = 2
 [node name="GameOver" parent="." instance=ExtResource("2_n0c2p")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_7onog")]
-process_mode = 3
