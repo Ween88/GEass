@@ -6,15 +6,21 @@ extends CharacterBody2D
 @export var detection_range: float = 200.0
 @export var step_hop: float = 150.0
 
-var direction: int = -1  # -1 = left, 1 = right
-var is_chasing: bool = false
-var player: Node2D
-var health = 100
-
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_ground_front: RayCast2D = $RayCast_GroundFront
 @onready var ray_wall_front: RayCast2D = $RayCast_WallFront
 @onready var ray_step_front: RayCast2D = $RayCast_StepFront
+@onready var attack_area = $EnemyAttackArea
+
+var direction: int = -1  # -1 = left, 1 = right
+var is_chasing: bool = false
+var player: Node2D
+var health = 100
+var damage = 15
+
+# Attack variables
+var can_attack = true
+var attack_cooldown = 1.0
 
 # Store original offsets to avoid cumulative errors
 var _ray_ground_front_abs_x: float
@@ -93,3 +99,14 @@ func die():
 	
 	#Removes the enemy node from the scene tree
 	queue_free()
+	
+func attack():
+	can_attack = false
+	print("Enemy is attacking!")
+	# Start the attack cooldown
+	get_tree().create_timer(attack_cooldown).timeout.connect(reset_attack_cooldown)
+	
+func reset_attack_cooldown():
+	can_attack = true
+
+	

@@ -7,9 +7,18 @@ const GRAVITY = 1000
 @onready var anim_sprite = $Visual/Movement
 @onready var anim_player = $Visual/AnimationPlayer
 @onready var visuals = $Visual
+@onready var attack_area = $AttackArea
 
+# Health variables
+var health = 100
+var max_health = 100
+@onready var health_bar = $HealthBar
+
+#Default values
 var equipped_weapon = null
 var swinging = false
+var can_attack = true
+var attack_cooldown = 0.5
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
@@ -74,16 +83,36 @@ func _input(event):
 
 	#event to perform attack 
 	if event.is_action_pressed("attack"):
-		if equipped_weapon:
-			play_attack_animation()
-			# Call a function on the equipped weapon to activate its hitbox
-			equipped_weapon.set_hitbox_active(true)
-			# Use a timer  to deactivate it later
-			get_tree().create_timer(0.2).timeout.connect(deactivate_weapon_hitbox)
-
-func deactivate_weapon_hitbox():
-	if equipped_weapon:
-		equipped_weapon.set_hitbox_active(false)
-
-func play_attack_animation():
+		attack()
+		
+func attack():
+	can_attack = false
 	anim_player.play("attack")
+	get_tree().create_timer(attack_cooldown).timeout.connect(reset_attack)
+	
+func reset_attack():
+	anim_player.play("RESET")
+	can_attack = true
+
+# These functions are called by the AnimationPlayer's Method Call Track
+func activate_hitbox():
+	attack_area.set_deferred("monitoring", true)
+	print("Hitbox Activated!")
+
+func deactivate_hitbox():
+	attack_area.set_deferred("monitoring", false)
+	print("Hitbox Deactivated!")
+
+#This function will called by the enemy when it hit the player
+func take_damage(amount):
+	
+	health -= amount
+	health_bar.value = health # Update the health bar
+	print("Player took ", amount, " damage! Health remaining: ", health)
+
+	if health <= 0:
+		die()
+		
+func die():
+	print("Player has died.")
+	queue_free()
