@@ -2708,7 +2708,7 @@ tile_map_data = PackedByteArray("AAABAAcAAAALABIAAAACAAcAAAALABIAAAADAAcAAAALABI
 tile_set = SubResource("TileSet_mr2el")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["players"]]
-position = Vector2(135, -315)
+position = Vector2(-1, 0)
 disable_mode = 1
 collision_layer = 255
 collision_mask = 255

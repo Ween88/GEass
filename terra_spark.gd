@@ -38,7 +38,7 @@ func _physics_process(_delta):
 	%sugarcane.text = ": " + str(inventory["sugarcane"])
 	
 	if player:
-		distance = (get_global_mouse_position() - player.position).length()
+		distance = (get_global_mouse_position() - player.global_position).length()
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -114,4 +114,4 @@ func switch_block(event):
 		current_block = "sugarcane"
 
 func is_placeable(event) -> bool:
-	return event.button_index == MOUSE_BUTTON_RIGHT and distance < 100 and distance > 50 and inventory[current_block] > 0
+	return event.button_index == MOUSE_BUTTON_RIGHT and distance < 150 and distance > 100 and inventory[current_block] > 0
