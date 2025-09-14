@@ -1,9 +1,9 @@
 extends Node2D
-
-@export var block :  Dictionary[String, BlockData]
+ 
+@export var block : Dictionary[String, BlockData]
 @onready var ground = $Ground
 @export var player : CharacterBody2D
-
+ 
 var broken_tiles_health : Dictionary
 var current_block = "soil"
 var distance : float = INF
@@ -23,20 +23,8 @@ var inventory = {
 	"leave" : 0,
 	"dungeonblock" : 0
 }
-
-func _physics_process(_delta):
-	%soil.text = ": " + str(inventory["soil"])
-	%stone.text = ": " + str(inventory["stone"])
-	%sand.text = ": " + str(inventory["sand"])
-	%iron.text = ": " + str(inventory["iron"])
-	%gold.text = ": " + str(inventory["gold"])
-	%diamond.text = ": " + str(inventory["diamond"])
-	%crystal.text = ": " + str(inventory["crystal"])
-	%trunk.text = ": " + str(inventory["trunk"])
-	%pumpkin.text = ": " + str(inventory["pumpkin"])
-	%cactus.text = ": " + str(inventory["cactus"])
-	%sugarcane.text = ": " + str(inventory["sugarcane"])
 	
+func _physics_process(_delta):
 	if player:
 		distance = (get_global_mouse_position() - player.global_position).length()
 
@@ -56,7 +44,7 @@ func _input(event):
 		
 		if is_placeable(event):
 			ground.set_cell(tile_pos, block[current_block].source1, block[current_block].atlas_coords[0])
-			inventory[current_block] -= 1
+
 	if event is InputEventKey:
 		switch_block(event)
 	
