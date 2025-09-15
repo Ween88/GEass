@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BlockData1" load_steps=2 format=3 uid="uid://dewel706r4hvs"]
+
+[ext_resource type="Script" uid="uid://baxqk8qrb6uet" path="res://scenes/BlockData1.gd" id="1_5jbdp"]
+
+[resource]
+script = ExtResource("1_5jbdp")
+tile_name = "soil"
+atlas_coords = Array[Vector2i]([Vector2i(5, 0), Vector2i(4, 0)])
+source_id = 0
+title = ""
+metadata/_custom_type_script = "uid://baxqk8qrb6uet"

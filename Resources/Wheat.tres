@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CropData" load_steps=3 format=3 uid="uid://cxyt6k1eerv7y"]
+
+[ext_resource type="Texture2D" uid="uid://oy42hsnelbyo" path="res://assest/6 - Wheat Inventory.png" id="1_ss40m"]
+[ext_resource type="Script" uid="uid://djjiotys5x8wt" path="res://scenes/CropData.gd" id="2_47ug4"]
+
+[resource]
+script = ExtResource("2_47ug4")
+duration = 10.0
+tile_name = "wheat"
+atlas_coords = Array[Vector2i]([Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 3)])
+source_id = 0
+title = "wheat"
+icon = ExtResource("1_ss40m")
+metadata/_custom_type_script = "uid://djjiotys5x8wt"

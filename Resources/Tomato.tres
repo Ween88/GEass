@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CropData" load_steps=3 format=3 uid="uid://onjuj0d53g8s"]
+
+[ext_resource type="Texture2D" uid="uid://bvb01hdol6wy" path="res://assest/6 - Tomato Inventory.png" id="1_mbpse"]
+[ext_resource type="Script" uid="uid://djjiotys5x8wt" path="res://scenes/CropData.gd" id="2_bvqil"]
+
+[resource]
+script = ExtResource("2_bvqil")
+duration = 10.0
+tile_name = "tomato"
+atlas_coords = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 1)])
+source_id = 0
+title = "tomato"
+icon = ExtResource("1_mbpse")
+metadata/_custom_type_script = "uid://djjiotys5x8wt"

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy1ya8u8vvqgk"]
+
+[ext_resource type="Script" uid="uid://jhy7c7ydhlba" path="res://scenes/slot.gd" id="1_4v6ba"]
+
+[node name="Slot" type="Panel"]
+z_index = -1
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("1_4v6ba")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 4
+horizontal_alignment = 2
+vertical_alignment = 2
