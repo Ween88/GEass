@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://6txcafybwr70"]
+
+[ext_resource type="Script" uid="uid://b4orssga41542" path="res://scenes/queue_slot.gd" id="1_u4r5n"]
+
+[node name="QueueSlot" type="Panel"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_u4r5n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = 38.0
+grow_vertical = 0
+show_percentage = false
+
+[node name="Cancel" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "X"
+
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]

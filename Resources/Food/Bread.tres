@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item1" load_steps=3 format=3 uid="uid://bafg7oagwsf3p"]
+
+[ext_resource type="Texture2D" uid="uid://ibwhbcswsfl3" path="res://assest/bread.webp" id="1_ic605"]
+[ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_f0355"]
+
+[resource]
+script = ExtResource("2_f0355")
+title = "Bread"
+icon = ExtResource("1_ic605")
+metadata/_custom_type_script = "uid://bsh0sudrmxym6"

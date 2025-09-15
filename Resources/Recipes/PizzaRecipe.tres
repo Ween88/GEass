@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://c7vhewdo4h764"]
+
+[ext_resource type="Texture2D" uid="uid://c6doskjdrfkk4" path="res://assest/pizza.png" id="1_7gqj0"]
+[ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_ewbiq"]
+[ext_resource type="Resource" uid="uid://cxyt6k1eerv7y" path="res://Resources/Wheat.tres" id="3_npdca"]
+[ext_resource type="Resource" uid="uid://onjuj0d53g8s" path="res://Resources/Tomato.tres" id="4_awvua"]
+[ext_resource type="Resource" uid="uid://cs5yaqhbj3lgd" path="res://Resources/Food/Pizza.tres" id="5_qiv0s"]
+[ext_resource type="Script" uid="uid://b4f0pbjdi2msx" path="res://scenes/Recipe.gd" id="6_mqrbb"]
+
+[resource]
+script = ExtResource("6_mqrbb")
+name = "Pizza"
+icon = ExtResource("1_7gqj0")
+ingredients = Dictionary[ExtResource("2_ewbiq"), int]({
+ExtResource("3_npdca"): 2,
+ExtResource("4_awvua"): 1
+})
+product = ExtResource("5_qiv0s")
+product_amount = 1
+cook_time = 5.0
+metadata/_custom_type_script = "uid://b4f0pbjdi2msx"

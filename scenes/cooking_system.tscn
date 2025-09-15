@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=3 uid="uid://bumwl81467i3g"]
+
+[ext_resource type="Script" uid="uid://bn6aekq5sp87c" path="res://scenes/cooking_system.gd" id="1_qsbep"]
+[ext_resource type="Script" uid="uid://b4f0pbjdi2msx" path="res://scenes/Recipe.gd" id="2_nkbsw"]
+[ext_resource type="Resource" uid="uid://u5rwcicep584" path="res://Resources/Recipes/BreadRecipe.tres" id="3_6celu"]
+[ext_resource type="Resource" uid="uid://cuf7fvirg1lnl" path="res://Resources/Recipes/FriesRecipe.tres" id="4_0wj76"]
+[ext_resource type="Resource" uid="uid://c7vhewdo4h764" path="res://Resources/Recipes/PizzaRecipe.tres" id="5_5s6i4"]
+[ext_resource type="Resource" uid="uid://days6uvni3kg" path="res://Resources/Recipes/PumpkinPieRecipe.tres" id="6_qhe6w"]
+
+[node name="CookingSystem" type="Control" node_paths=PackedStringArray("recipe_container", "queue")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qsbep")
+recipes = Array[ExtResource("2_nkbsw")]([ExtResource("3_6celu"), ExtResource("4_0wj76"), ExtResource("5_5s6i4"), ExtResource("6_qhe6w")])
+recipe_container = NodePath("Panel/ScrollContainer/Recipes")
+queue = NodePath("Panel2/ScrollContainer/Queue")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 140)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 209.0
+offset_bottom = 149.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Recipes"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -43.0
+offset_right = 93.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="Recipes" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Create" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -52.0
+offset_right = -22.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Create"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -59.5
+offset_bottom = 59.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Queue"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_top = 27.0
+offset_right = 21.0
+offset_bottom = 111.0
+grow_horizontal = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="Queue" type="VBoxContainer" parent="Panel2/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Create" to="." method="_on_create_pressed"]

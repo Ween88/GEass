@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://u5rwcicep584"]
+
+[ext_resource type="Texture2D" uid="uid://ibwhbcswsfl3" path="res://assest/bread.webp" id="1_228he"]
+[ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_333op"]
+[ext_resource type="Resource" uid="uid://cxyt6k1eerv7y" path="res://Resources/Wheat.tres" id="3_5w88e"]
+[ext_resource type="Resource" uid="uid://bafg7oagwsf3p" path="res://Resources/Food/Bread.tres" id="4_umwoq"]
+[ext_resource type="Script" uid="uid://b4f0pbjdi2msx" path="res://scenes/Recipe.gd" id="5_tfv1i"]
+
+[resource]
+script = ExtResource("5_tfv1i")
+name = "Bread"
+icon = ExtResource("1_228he")
+ingredients = Dictionary[ExtResource("2_333op"), int]({
+ExtResource("3_5w88e"): 2
+})
+product = ExtResource("4_umwoq")
+product_amount = 1
+cook_time = 5.0
+metadata/_custom_type_script = "uid://b4f0pbjdi2msx"

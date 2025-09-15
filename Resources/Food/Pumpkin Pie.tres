@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item1" load_steps=3 format=3 uid="uid://byjhvjxj4cju5"]
+
+[ext_resource type="Texture2D" uid="uid://c066kspq0kote" path="res://assest/pumpkin_pie.webp" id="1_uhjmb"]
+[ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_eo8ud"]
+
+[resource]
+script = ExtResource("2_eo8ud")
+title = "Pumpkin Pie"
+icon = ExtResource("1_uhjmb")
+metadata/_custom_type_script = "uid://bsh0sudrmxym6"

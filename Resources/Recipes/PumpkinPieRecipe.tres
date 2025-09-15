@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://days6uvni3kg"]
+
+[ext_resource type="Texture2D" uid="uid://c066kspq0kote" path="res://assest/pumpkin_pie.webp" id="1_dqury"]
+[ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_7hd64"]
+[ext_resource type="Resource" uid="uid://b02ho8lddorch" path="res://Resources/Pumpkin.tres" id="3_d7glx"]
+[ext_resource type="Resource" uid="uid://cxyt6k1eerv7y" path="res://Resources/Wheat.tres" id="4_g1ooe"]
+[ext_resource type="Resource" uid="uid://byjhvjxj4cju5" path="res://Resources/Food/Pumpkin Pie.tres" id="5_f77p7"]
+[ext_resource type="Script" uid="uid://b4f0pbjdi2msx" path="res://scenes/Recipe.gd" id="6_614ip"]
+
+[resource]
+script = ExtResource("6_614ip")
+name = "Pumpkin Pie"
+icon = ExtResource("1_dqury")
+ingredients = Dictionary[ExtResource("2_7hd64"), int]({
+ExtResource("3_d7glx"): 2,
+ExtResource("4_g1ooe"): 1
+})
+product = ExtResource("5_f77p7")
+product_amount = 1
+cook_time = 5.0
+metadata/_custom_type_script = "uid://b4f0pbjdi2msx"
