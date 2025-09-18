@@ -59,3 +59,10 @@ func _get_drag_data(_at_position):
 		set_drag_preview(preview)
 	
 	return self
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton and Shop.mode == Shop.MODE.ON:
+		if event.is_pressed()and event.button_index == MOUSE_BUTTON_RIGHT:
+			Shop.sell_item(item)
+			if item:
+				amount -= 1

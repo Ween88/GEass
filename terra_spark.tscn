@@ -2637,7 +2637,7 @@ radius = 14.0
 height = 50.0
 
 [node name="TerraSpark" type="Node2D" node_paths=PackedStringArray("player")]
-position = Vector2(47, -146)
+position = Vector2(2745, 1441)
 script = ExtResource("1_6gmo6")
 block = Dictionary[String, ExtResource("2_oro5c")]({
 "cactus": ExtResource("3_bs2or"),
@@ -2683,7 +2683,6 @@ sprite_frames = SubResource("SpriteFrames_kufaa")
 animation = &"idle"
 
 [node name="Tool" type="Node2D" parent="Player/Visual"]
-visible = false
 rotation = 0.0139626
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Visual/Tool"]
@@ -2725,6 +2724,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_wv78o")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cq5da")
 value = 100.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="sfx_jump" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("25_visfx")

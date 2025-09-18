@@ -8,4 +8,5 @@ tile_name = "soil"
 atlas_coords = Array[Vector2i]([Vector2i(5, 0), Vector2i(4, 0)])
 source_id = 0
 title = ""
+price = 1
 metadata/_custom_type_script = "uid://baxqk8qrb6uet"

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy1ya8u8vvqgk"]
+[gd_scene load_steps=2 format=3 uid="uid://cy1ya8u8vvqgk"]
 
 [ext_resource type="Script" uid="uid://jhy7c7ydhlba" path="res://scenes/slot.gd" id="1_4v6ba"]
-[ext_resource type="Script" uid="uid://tcgdp0af8xmk" path="res://scenes/icon.gd" id="2_ic0fu"]
 
 [node name="Slot" type="Panel"]
 z_index = -1
@@ -16,7 +15,6 @@ layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
 expand_mode = 1
-script = ExtResource("2_ic0fu")
 
 [node name="Amount" type="Label" parent="."]
 layout_mode = 1
@@ -32,3 +30,5 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 4
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

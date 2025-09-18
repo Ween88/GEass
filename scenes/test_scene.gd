@@ -53,7 +53,7 @@ func _input(event):
 			
 			harvesting(tile_pos)
 		
-		if event.button_index == MOUSE_BUTTON_RIGHT and not crop.has(tile_pos):
+		if event.button_index == MOUSE_BUTTON_RIGHT and not crop.has(tile_pos) and Shop.mode == Shop.MODE.OFF:
 			if is_instance_of(currently_equipped, CropData):
 				set_tile(currently_equipped.tile_name, tile_pos, crop_layer)
 				crop[tile_pos] = {

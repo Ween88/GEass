@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw1elk5dpgyf1"]
+
+[ext_resource type="Script" uid="uid://y8kusdi8s321" path="res://scenes/shop_slot.gd" id="1_i3ubo"]
+
+[node name="ShopSlot" type="Panel"]
+custom_minimum_size = Vector2(85, 30)
+offset_right = 85.0
+offset_bottom = 30.0
+script = ExtResource("1_i3ubo")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

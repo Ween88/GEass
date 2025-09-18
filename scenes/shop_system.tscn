@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkjrtwrbi7403"]
+
+[ext_resource type="Script" uid="uid://ctfrpufj0vnww" path="res://scenes/shop_system.gd" id="1_o2aec"]
+[ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_ow4o5"]
+[ext_resource type="Resource" uid="uid://byno4ned60dwo" path="res://Resources/Potato.tres" id="3_yrx0h"]
+[ext_resource type="Resource" uid="uid://b02ho8lddorch" path="res://Resources/Pumpkin.tres" id="4_5qho8"]
+[ext_resource type="Resource" uid="uid://onjuj0d53g8s" path="res://Resources/Tomato.tres" id="5_m18m0"]
+[ext_resource type="Resource" uid="uid://cxyt6k1eerv7y" path="res://Resources/Wheat.tres" id="6_xdwec"]
+[ext_resource type="Resource" uid="uid://cs5yaqhbj3lgd" path="res://Resources/Food/Pizza.tres" id="7_7waw7"]
+[ext_resource type="Resource" uid="uid://bafg7oagwsf3p" path="res://Resources/Food/Bread.tres" id="8_0q2lx"]
+
+[node name="ShopSystem" type="Control" node_paths=PackedStringArray("shop_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o2aec")
+shop_items = Array[ExtResource("2_ow4o5")]([ExtResource("3_yrx0h"), ExtResource("4_5qho8"), ExtResource("5_m18m0"), ExtResource("6_xdwec"), ExtResource("7_7waw7"), ExtResource("8_0q2lx")])
+shop_container = NodePath("UI/Panel/ScrollContainer/ShopInventory")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Currency" type="Label" parent="UI"]
+offset_left = 129.0
+offset_top = 64.0
+offset_right = 324.0
+offset_bottom = 87.0
+text = "Gold : 0"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="UI"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -139.0
+offset_right = -175.0
+offset_bottom = 102.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Shop"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -92.5
+offset_right = 63.0
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopInventory" type="VBoxContainer" parent="UI/Panel/ScrollContainer"]
+layout_mode = 2

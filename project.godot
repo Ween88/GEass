@@ -18,6 +18,12 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 Inventory="*res://scenes/inventory.tscn"
 CookingSystem="*res://scenes/cooking_system.tscn"
+Shop="*res://scenes/shop_system.tscn"
+
+[display]
+
+window/size/viewport_width=650
+window/size/viewport_height=400
 
 [input]
 
