@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://c7vhewdo4h764"]
 
-[ext_resource type="Texture2D" uid="uid://c6doskjdrfkk4" path="res://assest/pizza.png" id="1_7gqj0"]
+[ext_resource type="Texture2D" uid="uid://bxjg7lfwd6fcc" path="res://assest/pizza.webp" id="1_7gqj0"]
 [ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_ewbiq"]
 [ext_resource type="Resource" uid="uid://cxyt6k1eerv7y" path="res://Resources/Wheat.tres" id="3_npdca"]
 [ext_resource type="Resource" uid="uid://onjuj0d53g8s" path="res://Resources/Tomato.tres" id="4_awvua"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://cuf7fvirg1lnl"]
 
-[ext_resource type="Texture2D" uid="uid://cali3rv64knvv" path="res://assest/fries.png" id="1_raas2"]
+[ext_resource type="Texture2D" uid="uid://c8koi50qcllos" path="res://assest/SFries.jpg" id="1_raas2"]
 [ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_0sqnx"]
 [ext_resource type="Resource" uid="uid://byno4ned60dwo" path="res://Resources/Potato.tres" id="3_s3lfp"]
 [ext_resource type="Resource" uid="uid://bx4xtwr3bc1qw" path="res://Resources/Food/Fries.tres" id="4_awnea"]

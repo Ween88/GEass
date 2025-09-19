@@ -60,6 +60,7 @@ vertical_scroll_mode = 3
 
 [node name="Recipes" type="VBoxContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Create" type="Button" parent="."]
 layout_mode = 1

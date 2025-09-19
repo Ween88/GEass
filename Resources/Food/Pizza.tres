@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="Item1" load_steps=3 format=3 uid="uid://cs5yaqhbj3lgd"]
 
-[ext_resource type="Texture2D" uid="uid://c6doskjdrfkk4" path="res://assest/pizza.png" id="1_mjo5k"]
+[ext_resource type="Texture2D" uid="uid://bxjg7lfwd6fcc" path="res://assest/pizza.webp" id="1_mjo5k"]
 [ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_lsoxt"]
 
 [resource]
 script = ExtResource("2_lsoxt")
 title = "Pizza"
 icon = ExtResource("1_mjo5k")
+price = 1
 metadata/_custom_type_script = "uid://bsh0sudrmxym6"

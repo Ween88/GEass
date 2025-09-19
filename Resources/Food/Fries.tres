@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item1" load_steps=3 format=3 uid="uid://bx4xtwr3bc1qw"]
 
-[ext_resource type="Texture2D" uid="uid://cali3rv64knvv" path="res://assest/fries.png" id="1_l44ky"]
+[ext_resource type="Texture2D" uid="uid://c8koi50qcllos" path="res://assest/SFries.jpg" id="1_l44ky"]
 [ext_resource type="Script" uid="uid://bsh0sudrmxym6" path="res://scenes/Item1.gd" id="2_23fkn"]
 
 [resource]

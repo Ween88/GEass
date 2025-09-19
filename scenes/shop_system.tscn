@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o2aec")
-shop_items = Array[ExtResource("2_ow4o5")]([ExtResource("3_yrx0h"), ExtResource("4_5qho8"), ExtResource("5_m18m0"), ExtResource("6_xdwec"), ExtResource("7_7waw7"), ExtResource("8_0q2lx")])
+shop_items = Array[ExtResource("2_ow4o5")]([ExtResource("3_yrx0h"), ExtResource("5_m18m0"), ExtResource("6_xdwec"), ExtResource("7_7waw7"), ExtResource("8_0q2lx"), ExtResource("4_5qho8")])
 shop_container = NodePath("UI/Panel/ScrollContainer/ShopInventory")
 
 [node name="UI" type="CanvasLayer" parent="."]
