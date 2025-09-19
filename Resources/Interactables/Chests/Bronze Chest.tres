@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Chest" load_steps=3 format=3 uid="uid://cxfdhnok138cj"]
+
+[ext_resource type="Texture2D" uid="uid://bwyd4kidqndcx" path="res://assest/SChest.png" id="1_3egf1"]
+[ext_resource type="Script" uid="uid://hqjxgtxhp2mw" path="res://scenes/Chest.gd" id="2_ackhn"]
+
+[resource]
+script = ExtResource("2_ackhn")
+size = 9
+title = "Small Chest"
+icon = ExtResource("1_3egf1")
+price = 1
+metadata/_custom_type_script = "uid://hqjxgtxhp2mw"

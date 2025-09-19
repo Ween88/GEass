@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://tyf88de15yr2"]
+[gd_scene load_steps=18 format=4 uid="uid://tyf88de15yr2"]
 
 [ext_resource type="Texture2D" uid="uid://ci7648odudr6x" path="res://assest/soil.png" id="1_g7g4h"]
 [ext_resource type="Script" uid="uid://djnrt8udngmym" path="res://scenes/test_scene.gd" id="1_nd71p"]
@@ -9,6 +9,10 @@
 [ext_resource type="Resource" uid="uid://cxyt6k1eerv7y" path="res://Resources/Wheat.tres" id="5_h3xc6"]
 [ext_resource type="Resource" uid="uid://b02ho8lddorch" path="res://Resources/Pumpkin.tres" id="6_s36qc"]
 [ext_resource type="Resource" uid="uid://onjuj0d53g8s" path="res://Resources/Tomato.tres" id="7_6qxox"]
+[ext_resource type="PackedScene" uid="uid://vx0b1738svp6" path="res://scenes/interactable.tscn" id="10_s36qc"]
+[ext_resource type="PackedScene" uid="uid://b3kjpnl8erjne" path="res://scenes/player.tscn" id="11_6qxox"]
+[ext_resource type="Resource" uid="uid://cxfdhnok138cj" path="res://Resources/Interactables/Chests/Bronze Chest.tres" id="11_gthg3"]
+[ext_resource type="Resource" uid="uid://jllul8yrtjoi" path="res://Resources/Interactables/Chests/Medium Chest.tres" id="12_ntc4i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8ivh"]
 texture = ExtResource("1_g7g4h")
@@ -288,3 +292,18 @@ tile_set = SubResource("TileSet_a5oyu")
 
 [node name="Crops" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_nd71p")
+
+[node name="Interactable" parent="." instance=ExtResource("10_s36qc")]
+position = Vector2(325, 248)
+item = ExtResource("11_gthg3")
+
+[node name="Interactable2" parent="." instance=ExtResource("10_s36qc")]
+position = Vector2(549, 217)
+item = ExtResource("12_ntc4i")
+
+[node name="Interactable3" parent="." instance=ExtResource("10_s36qc")]
+position = Vector2(468, 429)
+item = ExtResource("11_gthg3")
+
+[node name="Player" parent="." instance=ExtResource("11_6qxox")]
+position = Vector2(612, 325)

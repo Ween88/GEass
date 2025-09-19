@@ -33,18 +33,28 @@ func _can_drop_data(_at_psition, data):
 	return false
 
 func _drop_data(_at_position, data):
-	var temp = item
-	item = data.item
-	data.item = temp
 	
-	temp = amount
-	amount = data.amount
-	data.amount = temp
+	if item == data.item:
+		amount += data.amount
+		data.amount = 0
+	else:
+		var temp = item
+		item = data.item
+		data.item = temp
+		
+		temp = amount
+		amount = data.amount
+		data.amount = temp
 	
 	if get_parent().has_method("update"):
 		get_parent().update()
 	if data.get_parent().has_method("update"):
 		data.get_parent().update()
+	
+	if get_parent().name == "ChestInventory":
+		ChestManager.set_item()
+	if data.get_parent().name == "ChestInventory":
+		ChestManager.set_item()
 
 func _get_drag_data(_at_position):
 	if item:
