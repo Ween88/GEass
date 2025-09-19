@@ -1,17 +1,16 @@
 extends Control
 
-@onready var resume_button = $VBoxContainer/ResumeButton
-@onready var quit_button = $VBoxContainer/QuitButton
+@onready var resume_button: Button = $VBoxContainer/ResumeButton
+@onready var quit_button: Button = $VBoxContainer/QuitButton
 
-func _ready():
-	# Make sure to connect the signals for your buttons in the Godot editor
-	resume_button.pressed.connect(on_resume_pressed)
-	quit_button.pressed.connect(on_quit_pressed)
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	resume_button.pressed.connect(_on_resume_pressed)
+	quit_button.pressed.connect(_on_quit_pressed)
 
-func on_resume_pressed():
-	# Get a reference to the main scene's script (your HealthBar.gd script)
-	var main_scene = get_tree().get_root().get_child(0)
-	main_scene.unpause_game()
-	
-func on_quit_pressed():
+func _on_resume_pressed() -> void:
+	get_tree().paused = false   # unpause game
+	queue_free()                # close the pause menu
+
+func _on_quit_pressed() -> void:
 	get_tree().quit()

@@ -3,7 +3,7 @@ extends Control
 @onready var retry_button = $VBoxContainer/RetryButton
 @onready var quit_button = $VBoxContainer/QuitButton
 
-var main_game_scene_path = "res://HealthBar.tscn"
+var main_game_scene_path = "res://terra_spark.tscn"
 
 func _ready():
 	retry_button.pressed.connect(on_retry_pressed)

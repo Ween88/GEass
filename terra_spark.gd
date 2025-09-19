@@ -103,3 +103,22 @@ func switch_block(event):
 
 func is_placeable(event) -> bool:
 	return event.button_index == MOUSE_BUTTON_RIGHT and distance < 150 and distance > 100 and inventory[current_block] > 0
+	
+var pause_menu_scene := preload("res://pause_menu.tscn")
+var pause_menu: Control = null
+
+func _unhandled_input(event: InputEvent):
+	if event.is_action_pressed("pause"):
+		toggle_pause()
+		
+func toggle_pause():
+	if get_tree().paused:
+		get_tree().paused = false
+		if pause_menu and is_instance_valid(pause_menu):
+			pause_menu.queue_free()
+			pause_menu = null
+	else:
+		get_tree().paused = true
+		pause_menu = pause_menu_scene.instantiate()
+		get_tree().current_scene.add_child(pause_menu)
+		

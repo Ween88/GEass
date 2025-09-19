@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://d256kwuscdb2i"]
+[gd_scene load_steps=68 format=4 uid="uid://d256kwuscdb2i"]
 
 [ext_resource type="Script" uid="uid://dq8sjcpu0lxdb" path="res://terra_spark.gd" id="1_6gmo6"]
 [ext_resource type="Script" uid="uid://6gnyeqwd8fbc" path="res://player.gd" id="2_mr2el"]
@@ -31,6 +31,8 @@
 [ext_resource type="Texture2D" uid="uid://c0qndw8wm0orb" path="res://assest/Enemy_SpriteSheet.png" id="26_cq5da"]
 [ext_resource type="AudioStream" uid="uid://b4arj1yoqs3qd" path="res://sword-sound-260274.mp3" id="26_tdjag"]
 [ext_resource type="Script" uid="uid://cymlicvmgv88y" path="res://enemy_attack_area.gd" id="29_0nfx2"]
+[ext_resource type="PackedScene" uid="uid://cng2xndwwgtjy" path="res://game_over.tscn" id="32_k7q6g"]
+[ext_resource type="PackedScene" uid="uid://bakpki44lj568" path="res://pause_menu.tscn" id="33_t6ms6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4qlq"]
 texture = ExtResource("4_6gmo6")
@@ -2777,3 +2779,11 @@ shape = SubResource("CapsuleShape2D_visfx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("CapsuleShape2D_t6ms6")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="UI" instance=ExtResource("32_k7q6g")]
+visible = false
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("33_t6ms6")]
+visible = false

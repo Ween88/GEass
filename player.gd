@@ -118,5 +118,8 @@ func take_damage(amount):
 		die()
 		
 func die():
+	var game_over = get_tree().current_scene.get_node("UI/GameOver")
+	game_over.visible = true
 	print("Player has died.")
 	queue_free()
+	
