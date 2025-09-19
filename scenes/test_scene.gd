@@ -3,6 +3,9 @@ extends Node2D
 @onready var ground = $Ground
 @onready var crop_layer = $Crops
 
+@onready var terra_button = $Teleport/Terra
+var main_game_scene_path = "res://terra_spark.tscn"
+
 var water_level : Dictionary
 var crop : Dictionary
  
@@ -11,12 +14,16 @@ var crop : Dictionary
 var currently_equipped : Item1 = null
 
 func _ready():
+	terra_button.pressed.connect(_on_terra_pressed)
 	Inventory.current_scene = self
 	
 	Inventory.add_item(block["potato"])
 	Inventory.add_item(block["tomato"])
 	Inventory.add_item(block["wheat"])
 	Inventory.add_item(block["pumpkin"])
+	
+func _on_terra_pressed():
+	get_tree().change_scene_to_file(main_game_scene_path)
 
 func _physics_process(delta):
 	for pos in water_level:

@@ -14,7 +14,10 @@ const GRAVITY = 1000
 # Health variables
 var health = 100
 var max_health = 100
-@onready var health_bar = $HealthBar
+@onready var health_bar = $Health/HealthBar
+@onready var farm_button = $Teleport/Farm
+
+var farm_scene_path = "res://scenes/test_scene.tscn"
 
 #Default values
 var equipped_weapon = null
@@ -120,6 +123,13 @@ func take_damage(amount):
 func die():
 	var game_over = get_tree().current_scene.get_node("UI/GameOver")
 	game_over.visible = true
+	get_tree().paused = true
 	print("Player has died.")
-	queue_free()
+	#queue_free()
+	
+func _ready():
+	farm_button.pressed.connect(_on_farm_button_pressed)
+
+func _on_farm_button_pressed():
+	get_tree().change_scene_to_file(farm_scene_path)
 	

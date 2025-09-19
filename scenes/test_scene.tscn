@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://tyf88de15yr2"]
+[gd_scene load_steps=19 format=4 uid="uid://tyf88de15yr2"]
 
 [ext_resource type="Texture2D" uid="uid://ci7648odudr6x" path="res://assest/soil.png" id="1_g7g4h"]
 [ext_resource type="Script" uid="uid://djnrt8udngmym" path="res://scenes/test_scene.gd" id="1_nd71p"]
@@ -276,6 +276,15 @@ custom_data_layer_0/name = "tile_name"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_nd71p")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntc4i"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_nd71p")
 block = Dictionary[String, ExtResource("2_3qnke")]({
@@ -307,3 +316,23 @@ item = ExtResource("11_gthg3")
 
 [node name="Player" parent="." instance=ExtResource("11_6qxox")]
 position = Vector2(612, 325)
+
+[node name="Teleport" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -457.0
+offset_bottom = 184.0
+grow_horizontal = 0
+
+[node name="Terra" type="Button" parent="Teleport"]
+layout_mode = 0
+offset_left = 1325.0
+offset_top = 19.0
+offset_right = 1428.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ntc4i")
+text = "Terra"

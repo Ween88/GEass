@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://d256kwuscdb2i"]
+[gd_scene load_steps=69 format=4 uid="uid://d256kwuscdb2i"]
 
 [ext_resource type="Script" uid="uid://dq8sjcpu0lxdb" path="res://terra_spark.gd" id="1_6gmo6"]
 [ext_resource type="Script" uid="uid://6gnyeqwd8fbc" path="res://player.gd" id="2_mr2el"]
@@ -30,6 +30,8 @@
 [ext_resource type="Script" uid="uid://cyrwigteasckk" path="res://enemy.gd" id="25_wv78o"]
 [ext_resource type="Texture2D" uid="uid://c0qndw8wm0orb" path="res://assest/Enemy_SpriteSheet.png" id="26_cq5da"]
 [ext_resource type="AudioStream" uid="uid://b4arj1yoqs3qd" path="res://sword-sound-260274.mp3" id="26_tdjag"]
+[ext_resource type="Texture2D" uid="uid://cpodedw08fb2k" path="res://healthbar3.png" id="27_rxu2i"]
+[ext_resource type="Texture2D" uid="uid://bq3giv0ro3er4" path="res://Progress12.png" id="28_8mpt7"]
 [ext_resource type="Script" uid="uid://cymlicvmgv88y" path="res://enemy_attack_area.gd" id="29_0nfx2"]
 [ext_resource type="PackedScene" uid="uid://cng2xndwwgtjy" path="res://game_over.tscn" id="32_k7q6g"]
 [ext_resource type="PackedScene" uid="uid://bakpki44lj568" path="res://pause_menu.tscn" id="33_t6ms6"]
@@ -2569,11 +2571,14 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wosgi"]
 height = 63.6487
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv78o"]
-bg_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cq5da"]
-bg_color = Color(0.951401, 0.32934, 0.303198, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxu2i"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wv78o"]
 atlas = ExtResource("26_cq5da")
@@ -2717,23 +2722,49 @@ position = Vector2(-18.5499, -35.1365)
 rotation = -0.455531
 shape = SubResource("CapsuleShape2D_wosgi")
 
-[node name="HealthBar" type="ProgressBar" parent="Player"]
-offset_left = -562.0
-offset_top = -312.0
-offset_right = -194.0
-offset_bottom = -285.0
-theme_override_styles/background = SubResource("StyleBoxFlat_wv78o")
-theme_override_styles/fill = SubResource("StyleBoxFlat_cq5da")
-value = 100.0
-show_percentage = false
-metadata/_edit_use_anchors_ = true
-
 [node name="sfx_jump" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("25_visfx")
 volume_db = -7.0
 
 [node name="sfx_attack" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("26_tdjag")
+
+[node name="Health" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -503.0
+offset_top = -394.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="Player/Health"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_under = ExtResource("27_rxu2i")
+texture_progress = ExtResource("28_8mpt7")
+texture_progress_offset = Vector2(3, -3)
+
+[node name="Teleport" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -416.0
+offset_top = -144.0
+offset_right = 41.0
+offset_bottom = 40.0
+
+[node name="Farm" type="Button" parent="Player/Teleport"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = -234.0
+offset_right = 227.0
+offset_bottom = -206.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_rxu2i")
+text = "Farm
+"
 
 [node name="DarkForestBackground" type="Sprite2D" parent="."]
 z_index = -4096

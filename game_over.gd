@@ -6,6 +6,7 @@ extends Control
 var main_game_scene_path = "res://terra_spark.tscn"
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	retry_button.pressed.connect(on_retry_pressed)
 	quit_button.pressed.connect(on_quit_pressed)
 
