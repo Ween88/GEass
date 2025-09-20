@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://muqs5yjsosfq"]
+
+[ext_resource type="Script" uid="uid://cyrwigteasckk" path="res://enemy.gd" id="1_2hac7"]
+[ext_resource type="Texture2D" uid="uid://c0qndw8wm0orb" path="res://assest/Enemy_SpriteSheet.png" id="2_e6d4v"]
+[ext_resource type="Script" uid="uid://cymlicvmgv88y" path="res://enemy_attack_area.gd" id="3_qp131"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv78o"]
+atlas = ExtResource("2_e6d4v")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wosgi"]
+atlas = ExtResource("2_e6d4v")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nfx2"]
+atlas = ExtResource("2_e6d4v")
+region = Rect2(86, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_visfx"]
+atlas = ExtResource("2_e6d4v")
+region = Rect2(172, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdjag"]
+atlas = ExtResource("2_e6d4v")
+region = Rect2(258, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e7js"]
+atlas = ExtResource("2_e6d4v")
+region = Rect2(344, 0, 86, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6do27"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv78o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wosgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nfx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_visfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdjag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e7js")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rvmyp"]
+radius = 15.0
+height = 46.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nxwx"]
+radius = 14.0
+height = 50.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_2hac7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.00001, 2)
+scale = Vector2(0.367733, 0.344231)
+sprite_frames = SubResource("SpriteFrames_6do27")
+animation = &"idle"
+
+[node name="RayCast_GroundFront" type="RayCast2D" parent="."]
+position = Vector2(-16, 1)
+target_position = Vector2(0, 26)
+
+[node name="RayCast_WallFront" type="RayCast2D" parent="."]
+position = Vector2(-15, 0)
+target_position = Vector2(-15, 0)
+
+[node name="RayCast_StepFront" type="RayCast2D" parent="."]
+position = Vector2(-16, -2)
+target_position = Vector2(0, 18)
+
+[node name="EnemyAttackArea" type="Area2D" parent="."]
+script = ExtResource("3_qp131")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttackArea"]
+shape = SubResource("CapsuleShape2D_rvmyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2nxwx")

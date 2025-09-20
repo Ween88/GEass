@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://d256kwuscdb2i"]
+[gd_scene load_steps=53 format=4 uid="uid://d256kwuscdb2i"]
 
 [ext_resource type="Script" uid="uid://dq8sjcpu0lxdb" path="res://terra_spark.gd" id="1_6gmo6"]
 [ext_resource type="Script" uid="uid://6gnyeqwd8fbc" path="res://player.gd" id="2_mr2el"]
@@ -26,14 +26,13 @@
 [ext_resource type="Texture2D" uid="uid://dqkjuam6lfipi" path="res://assest/backgroundsand.webp" id="24_m1mjl"]
 [ext_resource type="Script" uid="uid://blo6uhtjbyua3" path="res://AttackArea.gd" id="24_wosgi"]
 [ext_resource type="AudioStream" uid="uid://cehxx42xcqcah" path="res://mixkit-player-jumping-in-a-video-game-2043.wav" id="25_visfx"]
-[ext_resource type="Script" uid="uid://cyrwigteasckk" path="res://enemy.gd" id="25_wv78o"]
-[ext_resource type="Texture2D" uid="uid://c0qndw8wm0orb" path="res://assest/Enemy_SpriteSheet.png" id="26_cq5da"]
 [ext_resource type="AudioStream" uid="uid://b4arj1yoqs3qd" path="res://sword-sound-260274.mp3" id="26_tdjag"]
 [ext_resource type="Texture2D" uid="uid://cpodedw08fb2k" path="res://healthbar3.png" id="27_rxu2i"]
 [ext_resource type="Texture2D" uid="uid://bq3giv0ro3er4" path="res://Progress12.png" id="28_8mpt7"]
-[ext_resource type="Script" uid="uid://cymlicvmgv88y" path="res://enemy_attack_area.gd" id="29_0nfx2"]
 [ext_resource type="PackedScene" uid="uid://cng2xndwwgtjy" path="res://game_over.tscn" id="32_k7q6g"]
 [ext_resource type="PackedScene" uid="uid://bakpki44lj568" path="res://pause_menu.tscn" id="33_t6ms6"]
+[ext_resource type="Script" uid="uid://dufve50ordjcv" path="res://spawner.gd" id="35_rxu2i"]
+[ext_resource type="PackedScene" uid="uid://muqs5yjsosfq" path="res://Enemy.tscn" id="36_8mpt7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4qlq"]
 texture = ExtResource("4_6gmo6")
@@ -2358,26 +2357,6 @@ sources/0 = SubResource("TileSetAtlasSource_r4qlq")
 radius = 13.0
 height = 48.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7q6g"]
-atlas = ExtResource("3_78kgk")
-region = Rect2(155, 50, 30, 49)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6ms6"]
-atlas = ExtResource("3_78kgk")
-region = Rect2(185, 50, 35, 49)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rxu2i"]
-atlas = ExtResource("3_78kgk")
-region = Rect2(222, 50, 35, 49)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mpt7"]
-atlas = ExtResource("3_78kgk")
-region = Rect2(252, 50, 34, 49)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rneu5"]
-atlas = ExtResource("3_78kgk")
-region = Rect2(288, 50, 34, 49)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_d67ev"]
 atlas = ExtResource("3_78kgk")
 region = Rect2(0, 0, 30, 49)
@@ -2408,26 +2387,6 @@ region = Rect2(198, 0, 32, 49)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kufaa"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k7q6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t6ms6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rxu2i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8mpt7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rneu5")
-}],
-"loop": true,
-"name": &"attack",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d67ev")
@@ -2530,69 +2489,6 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wv78o"]
-atlas = ExtResource("26_cq5da")
-region = Rect2(0, 0, 86, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wosgi"]
-atlas = ExtResource("26_cq5da")
-region = Rect2(0, 0, 86, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0nfx2"]
-atlas = ExtResource("26_cq5da")
-region = Rect2(86, 0, 86, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_visfx"]
-atlas = ExtResource("26_cq5da")
-region = Rect2(172, 0, 86, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdjag"]
-atlas = ExtResource("26_cq5da")
-region = Rect2(258, 0, 86, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3e7js"]
-atlas = ExtResource("26_cq5da")
-region = Rect2(344, 0, 86, 130)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k7q6g"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wv78o")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wosgi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0nfx2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_visfx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tdjag")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3e7js")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_visfx"]
-radius = 15.0
-height = 46.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6ms6"]
-radius = 14.0
-height = 50.0
 
 [node name="TerraSpark" type="Node2D" node_paths=PackedStringArray("player")]
 position = Vector2(2745, 1441)
@@ -2721,39 +2617,6 @@ position = Vector2(-1387, 454)
 scale = Vector2(1.40156, 2.25185)
 texture = ExtResource("24_m1mjl")
 
-[node name="Enemy" type="CharacterBody2D" parent="." groups=["enemies"]]
-position = Vector2(627, 89)
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("25_wv78o")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
-position = Vector2(-1.00001, 2)
-scale = Vector2(0.367733, 0.344231)
-sprite_frames = SubResource("SpriteFrames_k7q6g")
-animation = &"idle"
-
-[node name="RayCast_GroundFront" type="RayCast2D" parent="Enemy"]
-position = Vector2(-16, 1)
-target_position = Vector2(0, 26)
-
-[node name="RayCast_WallFront" type="RayCast2D" parent="Enemy"]
-position = Vector2(-15, 0)
-target_position = Vector2(-15, 0)
-
-[node name="RayCast_StepFront" type="RayCast2D" parent="Enemy"]
-position = Vector2(-16, -2)
-target_position = Vector2(0, 18)
-
-[node name="EnemyAttackArea" type="Area2D" parent="Enemy"]
-script = ExtResource("29_0nfx2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/EnemyAttackArea"]
-shape = SubResource("CapsuleShape2D_visfx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("CapsuleShape2D_t6ms6")
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="GameOver" parent="UI" instance=ExtResource("32_k7q6g")]
@@ -2761,3 +2624,19 @@ visible = false
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("33_t6ms6")]
 visible = false
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("35_rxu2i")
+enemy_scene = ExtResource("36_8mpt7")
+
+[node name="Spawn1" type="Marker2D" parent="Spawner"]
+position = Vector2(-345, 88)
+
+[node name="Spawn2" type="Marker2D" parent="Spawner"]
+position = Vector2(608, 101)
+
+[node name="Spawn3" type="Marker2D" parent="Spawner"]
+position = Vector2(1958, 69)
+
+[node name="Spawn4" type="Marker2D" parent="Spawner"]
+position = Vector2(1251, 215)

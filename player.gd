@@ -79,6 +79,7 @@ func attack():
 	get_tree().create_timer(attack_cooldown).timeout.connect(reset_attack)
 	sfx_attack.play()
 	
+
 func reset_attack():
 	anim_player.play("RESET")
 	can_attack = true
