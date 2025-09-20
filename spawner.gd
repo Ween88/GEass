@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var enemy_scene: PackedScene
-@export var spawn_limit: int = 5
+@export var spawn_limit: int = 4
 @export var spawn_cooldown: float = 3.0
 
 var active_enemies: Array = []
