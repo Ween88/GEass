@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var gravity: float = 800.0
 @export var detection_range: float = 200.0
 @export var step_hop: float = 150.0
+@export var knockback_force: float = 300.0
+@export var knockback_upward: float = 200.0
+@export var knockback_time: float = 0.25
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_ground_front: RayCast2D = $RayCast_GroundFront
@@ -17,6 +20,7 @@ var is_chasing: bool = false
 var player: Node2D
 var health = 100
 var damage = 15
+var knockback_timer: float = 0.0
 
 # Attack variables
 var can_attack = true
@@ -44,6 +48,11 @@ func _ready():
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
+	
+	if knockback_timer > 0.0:
+		knockback_timer -= delta
+		move_and_slide()
+		return # Skip chase/patrol logic while in knockback
 
 	# --- Player Detection & Chase ---
 	if player and global_position.distance_to(player.global_position) < detection_range:
@@ -86,16 +95,19 @@ func _apply_direction():
 	ray_wall_front.target_position.x = direction * _ray_wall_target_abs_x
 	ray_step_front.target_position.x = direction * _ray_step_target_abs_x
 
-func take_damage(amount):
+func take_damage(amount, from_pos: Vector2):
 	health -= amount
-	print("Enemy took", amount, "damage! Health remaining: ", health)
+	
+	apply_knockback(from_pos) #Apply knockback
+	
+	print("Enemy took ", amount, " damage! Health remaining: ", health)
 	
 	#Check if health has dropped to or below zero
 	if health <= 0:
 		die()
 
 func die():
-	#Death animation
+	print("The enemy die.")
 	
 	#Removes the enemy node from the scene tree
 	queue_free()
@@ -108,5 +120,10 @@ func attack():
 	
 func reset_attack_cooldown():
 	can_attack = true
-
 	
+	
+func apply_knockback(from_pos: Vector2):
+	var dir = -1 if from_pos.x > global_position.x else 1
+	velocity.x = dir * knockback_force
+	velocity.y = -knockback_upward
+	knockback_timer = knockback_time

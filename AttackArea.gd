@@ -9,7 +9,7 @@ func _on_body_entered(body):
 	if body.is_in_group("enemies"):
 		if body.has_method("take_damage"):
 			#Call the take_damage method on body that was hit
-			body.take_damage(damage)
+			body.take_damage(damage, global_position)
 			
 			#Prevent hitting the same enemy multiple times with single attack
 			monitoring = false

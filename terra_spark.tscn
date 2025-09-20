@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://d256kwuscdb2i"]
+[gd_scene load_steps=68 format=4 uid="uid://d256kwuscdb2i"]
 
 [ext_resource type="Script" uid="uid://dq8sjcpu0lxdb" path="res://terra_spark.gd" id="1_6gmo6"]
 [ext_resource type="Script" uid="uid://6gnyeqwd8fbc" path="res://player.gd" id="2_mr2el"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://wt7hjdyft765" path="res://assest/Player_SpriteSheet.png" id="3_78kgk"]
 [ext_resource type="Resource" uid="uid://8qmohabhbhuc" path="res://Resources/Blocks/Cactus.tres" id="3_bs2or"]
 [ext_resource type="Texture2D" uid="uid://ctc2th1l2d47q" path="res://assest/TerraTileSet.png" id="4_6gmo6"]
-[ext_resource type="Texture2D" uid="uid://cvw14owuf556f" path="res://assest/pickaxe.png" id="4_78kgk"]
 [ext_resource type="Texture2D" uid="uid://bqnr8pjxvlebv" path="res://assest/Tiles_51.png" id="4_kufaa"]
 [ext_resource type="Resource" uid="uid://c4cmliq1fcuv4" path="res://Resources/Blocks/Crystal.tres" id="4_r4qlq"]
 [ext_resource type="Resource" uid="uid://cogt4xblgnv6c" path="res://Resources/Blocks/Diamond.tres" id="5_3hlra"]
@@ -2471,22 +2470,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Tool:rotation")
+tracks/0/path = NodePath("Visual/WeaponHolder/Sword:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0139626]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visual/WeaponHolder/Sword:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -2524,42 +2511,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_d67ev"]
 resource_name = "swing"
 length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Tool/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-32.626, -16.6295)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visual/Tool/Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visual/Tool:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.0147262, -0.938987, 0.0139626]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ov2q1"]
 _data = {
@@ -2688,14 +2639,6 @@ shape = SubResource("CapsuleShape2D_x34pt")
 scale = Vector2(0.866667, 1)
 sprite_frames = SubResource("SpriteFrames_kufaa")
 animation = &"idle"
-
-[node name="Tool" type="Node2D" parent="Player/Visual"]
-rotation = 0.0139626
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Visual/Tool"]
-position = Vector2(-32.626, -16.6295)
-scale = Vector2(0.0383806, 0.0395224)
-texture = ExtResource("4_78kgk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Visual"]
 root_node = NodePath("../..")
