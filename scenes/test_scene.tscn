@@ -303,7 +303,7 @@ tile_set = SubResource("TileSet_a5oyu")
 tile_set = SubResource("TileSet_nd71p")
 
 [node name="Interactable" parent="." instance=ExtResource("10_s36qc")]
-position = Vector2(325, 248)
+position = Vector2(297, 310)
 item = ExtResource("11_gthg3")
 
 [node name="Interactable2" parent="." instance=ExtResource("10_s36qc")]
@@ -311,7 +311,7 @@ position = Vector2(549, 217)
 item = ExtResource("12_ntc4i")
 
 [node name="Interactable3" parent="." instance=ExtResource("10_s36qc")]
-position = Vector2(468, 429)
+position = Vector2(480, 509)
 item = ExtResource("11_gthg3")
 
 [node name="Player" parent="." instance=ExtResource("11_6qxox")]

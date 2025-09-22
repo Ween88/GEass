@@ -2,6 +2,7 @@ extends Panel
 
 @export var item : Item1 = null:
 	set(value):
+		# Assigns item to slot and updates icon/amount
 		item = value
 		
 		if get_parent().has_method("update"):
@@ -16,24 +17,28 @@ extends Panel
 
 @export var amount : int = 0:
 	set(value):
+		# Sets item quantity and clears item if <= 0
 		amount = value
 		$Amount.text = str(value)
 		if amount <= 0:
 			item = null
 
 func set_amount(value : int):
+	# Manually sets item quantity
 	amount = value
 
 func add_amount(value : int):
+	# Adds more items to slot
 	amount += value
 
 func _can_drop_data(_at_psition, data):
+	# Checks if drag-and-drop data is valid (must be Item1)
 	if "item" in data:
 		return is_instance_of(data.item, Item1)
 	return false
 
 func _drop_data(_at_position, data):
-	
+	# Handles drag-and-drop item swapping/stacking
 	if item == data.item:
 		amount += data.amount
 		data.amount = 0
@@ -57,6 +62,7 @@ func _drop_data(_at_position, data):
 		ChestManager.set_item()
 
 func _get_drag_data(_at_position):
+	# Creates preview when dragging an item
 	if item:
 		var preview_texture = TextureRect.new()
 		
@@ -71,6 +77,7 @@ func _get_drag_data(_at_position):
 	return self
 
 func _on_gui_input(event):
+	# Right-click on slot when shop is ON to sell item
 	if event is InputEventMouseButton and Shop.mode == Shop.MODE.ON:
 		if event.is_pressed()and event.button_index == MOUSE_BUTTON_RIGHT:
 			Shop.sell_item(item)

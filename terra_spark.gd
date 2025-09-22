@@ -25,10 +25,12 @@ var inventory = {
 }
 	
 func _physics_process(_delta):
+	# Continuously measure distance from player to mouse position
 	if player:
 		distance = (get_global_mouse_position() - player.global_position).length()
 
 func _input(event):
+	# Handles block breaking and placing
 	if event is InputEventMouseButton and event.pressed:
 		var tile_pos = get_snapped_position(get_global_mouse_position())
 		
@@ -49,11 +51,13 @@ func _input(event):
 		switch_block(event)
 	
 func get_snapped_position(global_pos: Vector2) -> Vector2i:
+	# Converts mouse global position to tilemap grid position
 	var local_pos = ground.to_local(global_pos)
 	var tile_pos = ground.local_to_map(local_pos)
 	return tile_pos
 
 func take_damage (tile_name : StringName, tile_pos : Vector2i, amount : float = 1):
+	# Reduces block health and removes or updates tile
 	if tile_pos not in broken_tiles_health:
 		broken_tiles_health[tile_pos] = block[tile_name].health - amount
 	else:
@@ -78,6 +82,7 @@ func take_damage (tile_name : StringName, tile_pos : Vector2i, amount : float = 
 	print(broken_tiles_health)
 	
 func switch_block(event):
+	# Switch between block types using keys 1–0 and Q
 	if event.keycode == KEY_1 and event.pressed:
 		current_block = "soil"
 	if event.keycode == KEY_2 and event.pressed:
@@ -102,6 +107,7 @@ func switch_block(event):
 		current_block = "sugarcane"
 
 func is_placeable(event) -> bool:
+	# Only allow placing if conditions are met
 	return event.button_index == MOUSE_BUTTON_RIGHT and distance < 150 and distance > 100 and inventory[current_block] > 0
 	
 var pause_menu_scene := preload("res://pause_menu.tscn")

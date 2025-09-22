@@ -7,6 +7,7 @@ var storage : Dictionary
 var current_chest = null
 
 func open_chest(chest : Chest):
+	# Opens the chest UI and loads its stored inventory
 	current_chest = chest.node
 	if current_chest == null:
 		return
@@ -19,20 +20,24 @@ func open_chest(chest : Chest):
 	set_slot_item()
 
 func clear_inventory():
+	# Clears all slots in the inventory UI
 	for slot in inventory.get_children():
 		slot.free()
 
 func add_empty_slots(chest : Chest):
+	# Creates empty slot nodes based on chest size
 	inventory.columns = int(sqrt(chest.size))
 	for i in range(chest.size):
 		var slot = slot_node.instantiate()
 		inventory.add_child(slot)
 
 func de_activate():
+	# Closes the chest and clears its slots
 	clear_inventory()
 	current_chest = null
 
 func get_item():
+	# Retrieves current items from chest slots
 	var items = {}
 	for slot in inventory.get_children():
 		if "item" in slot:
@@ -43,6 +48,7 @@ func get_item():
 	return items
 
 func set_item():
+	# Saves items back to the storage dictionary
 	if current_chest == null:
 		return
  
@@ -51,6 +57,7 @@ func set_item():
 	print(storage)
 
 func set_slot_item():
+	# Loads stored items into the chest UI slots
 	var items = storage[current_chest.name]["inventory"]
 	for index in items:
 		inventory.get_child(index).item = items[index]["item"]

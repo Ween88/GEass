@@ -18,18 +18,22 @@ var selected_recipe : Recipe
 var selected_rect : Rect2
  
 func _ready():
+	# Runs when node enters scene; initializes recipe slots
 	free_slots()
 	load_recipes()
  
 func _draw():
+	# Draws a rectangle highlight around the selected recipe
 	draw_rect(selected_rect, Color.WHITE, false, 1)
  
 func _input(event):
+	# Toggles cooking system UI on/off when pressing TAB
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_TAB:
 			visible = !visible
  
 func load_recipes():
+	# Loads all recipes into the recipe container
 	for recipe in recipes:
 		var recipe_slot = recipe_slot_node.instantiate()
 		recipe_container.add_child(recipe_slot)
@@ -37,16 +41,19 @@ func load_recipes():
 		recipe_slot.selected.connect(selection)
  
 func free_slots():
+	 # Clears all recipe slots from container
 	for slot in recipe_container.get_children():
 		slot.free()
  
 func selection(item : Recipe, node : Panel):
+	# Called when a recipe is selected
 	selected_recipe = item
 	selected_rect = Rect2(node.global_position, node.size)
 	queue_redraw()
 	print(item.name)
  
 func queue_item(item : Recipe):
+	# Adds selected recipe to cooking queue
 	if item == null:
 		return
  
@@ -57,6 +64,7 @@ func queue_item(item : Recipe):
  
  
 func _on_create_pressed():
+	# Button: tries to cook the selected recipe
 	if not selected_recipe:
 		return
  
@@ -69,6 +77,7 @@ func _on_create_pressed():
 	queue_item(selected_recipe)
  
 func finished_cooking(item: Recipe, node : Panel):
+	# Called when cooking is done; adds product to inventory
 	if item == null:
 		return
  

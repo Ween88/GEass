@@ -4,6 +4,7 @@ signal selected(recipe, node)
  
 var recipe : Recipe:
 	set(value):
+		# Displays recipe details in slot UI
 		recipe = value
 		%Name.text = value.name
 		%Product.texture = value.icon
@@ -14,6 +15,7 @@ var recipe : Recipe:
  
  
 func _on_gui_input(event):
+	# Detects left-click to select this recipe
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			selected.emit(recipe, self)
