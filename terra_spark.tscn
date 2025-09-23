@@ -22,7 +22,7 @@
 [ext_resource type="Resource" uid="uid://yuwtm5tsf4cp" path="res://Resources/Blocks/Mushroom.tres" id="15_bs2or"]
 [ext_resource type="Resource" uid="uid://bqm0vanw5l1oo" path="res://Resources/Blocks/Dungeonblock.tres" id="16_r4qlq"]
 [ext_resource type="Texture2D" uid="uid://f05c2uxydrdo" path="res://assest/backgroundtree.png" id="23_3hlra"]
-[ext_resource type="Texture2D" uid="uid://b6wmu3a1nuuel" path="res://Zenith.png" id="23_cq5da"]
+[ext_resource type="Texture2D" uid="uid://b6wmu3a1nuuel" path="res://assest/Zenith.png" id="23_cq5da"]
 [ext_resource type="Texture2D" uid="uid://dqkjuam6lfipi" path="res://assest/backgroundsand.webp" id="24_m1mjl"]
 [ext_resource type="Script" uid="uid://blo6uhtjbyua3" path="res://AttackArea.gd" id="24_wosgi"]
 [ext_resource type="AudioStream" uid="uid://cehxx42xcqcah" path="res://mixkit-player-jumping-in-a-video-game-2043.wav" id="25_visfx"]

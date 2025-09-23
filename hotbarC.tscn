@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhj07roadjs6a"]
 
-[ext_resource type="Texture2D" uid="uid://b6wmu3a1nuuel" path="res://Zenith.png" id="1_oxksl"]
+[ext_resource type="Texture2D" uid="uid://b6wmu3a1nuuel" path="res://assest/Zenith.png" id="1_oxksl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvw14owuf556f"
-path="res://.godot/imported/pickaxe.png-227cb800d7bc392f9b54696fca0aed98.ctex"
+uid="uid://b6wmu3a1nuuel"
+path="res://.godot/imported/Zenith.png-944ceaf67e0c3553bfc085d5d2b39448.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assest/pickaxe.png"
-dest_files=["res://.godot/imported/pickaxe.png-227cb800d7bc392f9b54696fca0aed98.ctex"]
+source_file="res://assest/Zenith.png"
+dest_files=["res://.godot/imported/Zenith.png-944ceaf67e0c3553bfc085d5d2b39448.ctex"]
 
 [params]
 
